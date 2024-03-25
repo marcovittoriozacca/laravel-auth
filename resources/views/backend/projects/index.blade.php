@@ -37,12 +37,17 @@
                             <a class="btn btn-warning" href="{{ route('projects.edit', $project->id) }}">
                             Modifica
                             </a>
+
+                            <button type="button" id="modal-btn" class="btn btn-danger" data-bs-toggle="modal" data-id="{{ $project->id }}" data-path="projects" data-bs-target="#deleteModal">
+                                Elimina
+                            </button>
+                                       
                         </td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
-
+        @include('partials.modal')
     </div>
 @endsection
