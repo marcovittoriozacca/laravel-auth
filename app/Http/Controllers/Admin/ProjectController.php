@@ -62,7 +62,9 @@ class ProjectController extends Controller
     public function update(UpdateProjectRequest $request, Project $project)
     {
         $validated_data = $request->validated();
-        dd($validated_data);
+        $project->update($validated_data);
+        $project->save();
+        return redirect()->route('projects.index');
     }
 
     /**
