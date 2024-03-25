@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container py-4">
-        <form action="{{ route('projects.update', $project->id) }}" method="POST">
+        <form action="{{ route('projects.update', $project->slug) }}" method="POST">
             @csrf
             @method('PUT')
             <div class="mb-3">

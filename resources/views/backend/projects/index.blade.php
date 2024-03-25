@@ -21,7 +21,7 @@
                     <tr>
                         <td>{{ $project->id }}</td>
                         <td>
-                            <a href="{{ route('projects.show', $project->id) }}">
+                            <a href="{{ route('projects.show', $project->slug) }}">
                                 {{ $project->name }}
                             </a>
                         </td>
@@ -34,13 +34,15 @@
                         </td>
                         <td>{{ $project->slug }}</td>
                         <td>
-                            <a class="btn btn-warning" href="{{ route('projects.edit', $project->id) }}">
-                            Modifica
-                            </a>
-
-                            <button type="button" id="modal-btn" class="btn btn-danger" data-bs-toggle="modal" data-id="{{ $project->id }}" data-path="projects" data-bs-target="#deleteModal">
-                                Elimina
-                            </button>
+                            <div class="d-flex column-gap-2">
+                                <a class="btn btn-warning" href="{{ route('projects.edit', $project->slug) }}">
+                                Modifica
+                                </a>
+    
+                                <button type="button" id="modal-btn" class="btn btn-danger" data-bs-toggle="modal" data-id="{{ $project->slug }}" data-path="projects" data-bs-target="#deleteModal">
+                                    Elimina
+                                </button>
+                            </div>
                                        
                         </td>
                     </tr>
