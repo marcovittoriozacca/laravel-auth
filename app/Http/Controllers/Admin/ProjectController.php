@@ -53,7 +53,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view('backend.projects.edit', compact('project'));
     }
 
     /**
@@ -61,7 +61,8 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+        $validated_data = $request->validated();
+        dd($validated_data);
     }
 
     /**

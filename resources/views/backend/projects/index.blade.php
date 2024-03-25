@@ -13,6 +13,7 @@
                         <th scope="col" class="text-capitalize">tipologia</th>
                         <th scope="col" class="text-capitalize">link progetto</th>
                         <th scope="col" class="text-capitalize">slug</th>
+                        <th scope="col" class="text-capitalize">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -32,6 +33,11 @@
                             </a>
                         </td>
                         <td>{{ $project->slug }}</td>
+                        <td>
+                            <a class="btn btn-warning" href="{{ route('projects.edit', $project->id) }}">
+                            Modifica
+                            </a>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>
