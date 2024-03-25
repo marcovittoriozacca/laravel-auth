@@ -11,7 +11,7 @@ class StoreProjectRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,21 @@ class StoreProjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => ['required', 'max:150', 'unique:projects'],
+            'description' => ['required'],
+            'category' => ['nullable', 'max:50'],
+            'link' => ['nullable'],
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'Il campo Nome è obbligatorio',
+            'name.max' => 'La lungezza massima dei caratteri è di 150',
+            'name.unique' => 'Questo nome è già stato utilizzato in precedenza',
+            'description.required' => 'Il campo Descrizione è obbligatorio',
+            'category.max' => 'La lungezza massima dei caratteri è di 50',
         ];
     }
 }

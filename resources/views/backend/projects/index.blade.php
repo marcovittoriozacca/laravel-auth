@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="py-5">
+    <div class="py-4">
+        <a class="btn btn-success btn-lg" href="{{ route('projects.create') }}">Aggiungi un progetto</a>        
         <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
