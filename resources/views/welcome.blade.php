@@ -1,7 +1,8 @@
 @extends('layouts.app')
 @section('content')
 
-<div class="jumbotron p-5 mb-4 bg-light rounded-3">
+@guest
+<div class="jumbotron p-5 mb-4 bg-body-tertiary rounded-3">
     <div class="container py-5">
         <div class="logo_laravel">
             <svg viewBox="0 0 651 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-25">
@@ -15,14 +16,24 @@
         </h1>
         <div class="d-flex column-gap-3 mb-3">
             <p class="mb-0 fs-4">Login here</p>
-            <a href="{{ route('login') }}" class="btn btn-primary" type="button">Click to login</a>
+            <a href="{{ route('login') }}" class="btn btn-danger" type="button">Click to login</a>
         </div>
         <div class="d-flex column-gap-3">
             <p class="mb-0 fs-4">Register here</p>
-            <a href="{{ route('register') }}" class="btn btn-info text-white" type="button">Click to register</a>
+            <a href="{{ route('register') }}" class="btn btn-danger text-white" type="button">Click to register</a>
         </div>
 
     </div>
 </div>
+@endguest
+
+@auth
+    <div class="container">
+        <div class="text-center">
+            <h1 class="py-5">Benvenuto {{ Auth::user()->name }}!</h1>
+            <a class="btn btn-danger fs-3" href="{{ url('dashboard') }}">Vai alla dashboard e seleziona cosa guardare e gestire!</a>
+        </div>
+    </div>
+@endauth
 
 @endsection
