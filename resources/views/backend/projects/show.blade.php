@@ -8,7 +8,7 @@
                 <h1 class="card-title">{{ $project->name }}</h1>
                 <p class="card-text">{{ $project->description }}</p>
                 <p class="card-text">{{ $project->category }}</p>
-                <a href="{{ $project->link }}">
+                <a class="text-danger" href="{{ $project->link }}">
                     {{ $project->link }}
                 </a>
             </div>

@@ -2,7 +2,9 @@
 
 @section('content')
     <div class="py-4">
-        <a class="btn btn-success btn-lg" href="{{ route('projects.create') }}">Aggiungi un progetto</a>        
+        <div class="container">
+            <a class="btn btn-danger btn-lg my-4 w-100" href="{{ route('projects.create') }}">Aggiungi un progetto</a>        
+        </div>
         <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
@@ -21,14 +23,14 @@
                     <tr>
                         <td>{{ $project->id }}</td>
                         <td>
-                            <a href="{{ route('projects.show', $project->slug) }}">
+                            <a class="text-danger" href="{{ route('projects.show', $project->slug) }}">
                                 {{ $project->name }}
                             </a>
                         </td>
                         <td>{{ $project->description }}</td>
                         <td>{{ $project->category }}</td>
                         <td>
-                            <a href="{{ $project->link }}">
+                            <a class="text-danger" href="{{ $project->link }}">
                                 {{ $project->link }}
                             </a>
                         </td>
