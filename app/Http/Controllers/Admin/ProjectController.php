@@ -70,6 +70,17 @@ class ProjectController extends Controller
     {
         $validated_data = $request->validated();
         $validated_data['slug'] = Str::slug($validated_data['name'] ,'-');
+
+        if(key_exists('proj_thumb', $validated_data)){
+
+            if($project->proj_thumb){
+                Storage::delete($project->proj_thumb);
+            }
+
+            $img_path = Storage::disk('public')->put('proj_images', $validated_data['proj_thumb']);
+            $validated_data['proj_thumb'] = $img_path;
+        }
+
         $project->update($validated_data);
         $project->save();
         return redirect()->route('projects.index');
@@ -83,7 +94,7 @@ class ProjectController extends Controller
         if($project->proj_thumb){
             Storage::delete($project->proj_thumb);
         }
-        
+
         $project->delete();
         return redirect()->route('projects.index');
     }

@@ -27,6 +27,7 @@ class UpdateProjectRequest extends FormRequest
             'description' => ['required'],
             'category' => ['nullable', 'max:50'],
             'link' => ['nullable'],
+            'proj_thumb' => ['nullable', 'file', 'image', 'max:1000'],
         ];
     }
 

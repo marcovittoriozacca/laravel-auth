@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container py-4">
-        <form action="{{ route('projects.update', $project->slug) }}" method="POST">
+        <form action="{{ route('projects.update', $project->slug) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="mb-3">
@@ -49,6 +49,15 @@
                 </div>
                 @enderror
             </div>
+
+            <div class="mb-3">
+                <label for="proj_thumb" class="form-label">Cambia immagine del progetto</label>
+                <input type="file" class="form-control @error ('proj_thumb') is-invalid @enderror" name="proj_thumb" id="proj_thumb" >
+            </div>
+            @error ('proj_thumb') 
+                <p class="text-danger">{{ $message }}</p>
+            @enderror
+
             <button type="submit" class="btn btn-primary">Modifica</button>
         </form>
     </div>
