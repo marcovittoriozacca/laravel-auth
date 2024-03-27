@@ -80,6 +80,10 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        if($project->proj_thumb){
+            Storage::delete($project->proj_thumb);
+        }
+        
         $project->delete();
         return redirect()->route('projects.index');
     }
