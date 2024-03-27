@@ -15,6 +15,7 @@
                         <th scope="col" class="text-capitalize">tipologia</th>
                         <th scope="col" class="text-capitalize">link progetto</th>
                         <th scope="col" class="text-capitalize">slug</th>
+                        <th scope="col" class="text-capitalize">immagine</th>
                         <th scope="col" class="text-capitalize">Actions</th>
                     </tr>
                 </thead>
@@ -39,6 +40,7 @@
                             </a>
                         </td>
                         <td>{{ $project->slug }}</td>
+                        <td>{{ $project->proj_thumb }}</td>
                         <td>
                             <div class="d-flex column-gap-2">
                                 <a class="btn btn-warning" href="{{ route('projects.edit', $project->slug) }}">

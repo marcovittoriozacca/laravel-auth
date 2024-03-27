@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container py-4">
-        <form action="{{ route('projects.store') }}" method="POST">
+        <form action="{{ route('projects.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label">Nome del progetto <span class="text-danger">*</span></label>
@@ -48,6 +48,14 @@
                 </div>
                 @enderror
             </div>
+
+            <div class="mb-3">
+                <label for="proj_thumb" class="form-label">Immagine del progetto</label>
+                <input type="file" class="form-control @error ('proj_thumb') is-invalid @enderror" name="proj_thumb" id="proj_thumb">
+            </div>
+            @error ('proj_thumb') 
+                <p class="text-danger">{{ $message }}</p>
+            @enderror
             <button type="submit" class="btn btn-primary">Crea</button>
         </form>
     </div>
