@@ -27,7 +27,11 @@
                                 {{ $project->name }}
                             </a>
                         </td>
-                        <td>{{ $project->description }}</td>
+                        <td>
+                            <p class="truncate">
+                                {{ $project->description }}
+                            </p>
+                        </td>
                         <td>{{ $project->category }}</td>
                         <td>
                             <a class="text-danger" href="{{ $project->link }}">
@@ -41,7 +45,7 @@
                                 Modifica
                                 </a>
     
-                                <button type="button" id="modal-btn" class="btn btn-danger" data-bs-toggle="modal" data-id="{{ $project->slug }}" data-path="projects" data-bs-target="#deleteModal">
+                                <button type="button" id="modal-btn" class="btn btn-danger" data-bs-toggle="modal" data-slug="{{ $project->slug }}" data-path="projects" data-bs-target="#deleteModal">
                                     Elimina
                                 </button>
                             </div>

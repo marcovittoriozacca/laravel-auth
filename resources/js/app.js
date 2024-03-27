@@ -13,9 +13,9 @@ deleteModalBtn.forEach(element => {
     element.addEventListener('click', function(){
         let windowLocation = window.location.origin;
         let path = element.getAttribute('data-path');
-        let id = element.getAttribute('data-id');
+        let slug = element.getAttribute('data-slug');
       
-        const url = `${windowLocation}/dashboard/${path}/${id}`;
+        const url = `${windowLocation}/dashboard/${path}/${slug}`;
         const form = document.getElementById('record-to-delete');
 
         form.setAttribute('action', url);
