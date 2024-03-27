@@ -81,6 +81,11 @@ class ProjectController extends Controller
             $validated_data['proj_thumb'] = $img_path;
         }
 
+        if(key_exists('thumb_remove', $request->all()) && $request->thumb_remove == 1 ){
+            Storage::delete($project->proj_thumb);
+            $validated_data['proj_thumb'] = null;
+        }
+
         $project->update($validated_data);
         $project->save();
         return redirect()->route('projects.index');
