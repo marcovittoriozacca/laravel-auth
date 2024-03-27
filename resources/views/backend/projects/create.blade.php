@@ -51,7 +51,10 @@
 
             <div class="mb-3">
                 <label for="proj_thumb" class="form-label">Immagine del progetto</label>
-                <input type="file" class="form-control @error ('proj_thumb') is-invalid @enderror" name="proj_thumb" id="proj_thumb">
+                <input type="file" class="form-control @error ('proj_thumb') is-invalid @enderror" name="proj_thumb" id="proj_thumb"
+                    accept=".jpeg, .jpg, .png, .svg, .webp, .bmp, .tif, .tiff"
+                    maxlength="1000"
+                >
             </div>
             @error ('proj_thumb') 
                 <p class="text-danger">{{ $message }}</p>
