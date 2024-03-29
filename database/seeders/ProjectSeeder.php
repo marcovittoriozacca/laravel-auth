@@ -15,17 +15,16 @@ class ProjectSeeder extends Seeder
      */
     public function run(): void
     {
-        for ($i=0; $i < 10 ; $i++) { 
-            $proj = new Project();
-
-            $proj->name = fake()->words(rand(1,4), true);
-            $proj->description = fake()->sentence(rand(10,25), true);
-            $proj->category = fake()->randomElement(['Web Design e Sviluppo', 'Applicazioni Mobile', 'Arte e Illustrazione', 'Sviluppo Software']);
-            $proj->link = fake()->url();
-            $proj->slug = Str::slug($proj->name, '-');
-
-            $proj->save();
-        
+        for ($i=0; $i < 10 ; $i++) {
+            $name = fake()->unique()->words(rand(1,4), true);
+            Project::create([
+                "name" => $name,
+                "description" => fake()->sentence(rand(10,25), true),
+                "category" => fake()->randomElement(['Web Design e Sviluppo', 'Applicazioni Mobile', 'Arte e Illustrazione', 'Sviluppo Software']),
+                "link" => fake()->url(),
+                "proj_thumb" => fake()->imageUrl(),
+                "slug" => Str::slug($name, '-'),
+            ]);
         }
     }
 }

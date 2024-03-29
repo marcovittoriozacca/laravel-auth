@@ -78,7 +78,9 @@
                     <div class="col-3">
                         <div class="mb-3 text-end">
                             <h2>Immagine attuale:</h2>
-                            <img width="250" src="{{ asset('storage/' . $project->proj_thumb) }}" alt="">
+                            @if ($project->proj_thumb)
+                            <img class="card-img-top p-4" data-slug-img="{{ $project->proj_thumb }}" id="project_main_thumb" src="" alt="{{ $project->name }}">
+                            @endif
                         </div>
                     </div>
                 @endif

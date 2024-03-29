@@ -22,3 +22,19 @@ deleteModalBtn.forEach(element => {
     })
 });
 
+
+const projMainThumb = document.getElementById('project_main_thumb');
+if(projMainThumb){
+    const img_attribute = projMainThumb.getAttribute('data-slug-img');
+    
+    switch (true) {
+        case img_attribute.includes('https://'):
+            projMainThumb.setAttribute('src', img_attribute);
+            break;
+        case img_attribute.includes('proj_images/'):
+            const storageImagePath = `${window.location.origin}/storage/${img_attribute}`;
+            projMainThumb.setAttribute('src', storageImagePath );
+        default:
+            break;
+    }
+}

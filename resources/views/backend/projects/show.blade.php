@@ -6,8 +6,8 @@
         <div class="row justify-content-center">
             <div class="col-3">
                 <div class="card">
-                    @if ($project->proj_thumb)                        
-                    <img class="card-img-top p-4" src="{{ asset('/storage/' . $project->proj_thumb) }}" alt="{{ $project->name }}" />
+                    @if ($project->proj_thumb)
+                    <img class="card-img-top p-4" data-slug-img="{{ $project->proj_thumb }}" id="project_main_thumb" src="" alt="{{ $project->name }}">
                     @endif
                     <div class="card-body">
                         <h1 class="card-title">{{ $project->name }}</h1>
